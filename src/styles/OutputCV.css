@@ -1,0 +1,56 @@
+:root {
+    --primary-color: #1e88e5;
+    --light-color: #6ab7ff;
+    --dark-color: #005cb2;
+}
+.OutputCV {
+    border: 2px solid black;
+    border-radius: 5px;
+}
+.CV-header {
+    background-color: var(--dark-color);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.CV-header p,
+.CV-header h2 {
+    margin: 5px;
+}
+
+.it {
+    font-style: italic;
+}
+
+.pre {
+    background-color: var(--primary-color);
+}
+
+
+.CV-header-photo {
+    display: flex;
+    justify-content: center;
+}
+
+.CV-header-photo img {
+    width: 180px;
+    height: 180px;
+    border: 1px solid black;
+}
+
+.CV-header-info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.CV-header-info-general-elements {
+    display: flex;
+    flex-direction: row;
+}

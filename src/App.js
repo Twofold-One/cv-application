@@ -12,6 +12,15 @@ const theme = createTheme({
     palette: {
         primary: deepPurple,
     },
+    components: {
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    margin: '20px',
+                },
+            },
+        },
+    },
 });
 
 function App() {
