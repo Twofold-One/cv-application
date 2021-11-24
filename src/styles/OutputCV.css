@@ -15,6 +15,7 @@
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
+    margin: 10px;
 }
 
 .CV-header p,
@@ -53,4 +54,32 @@
 .CV-header-info-general-elements {
     display: flex;
     flex-direction: row;
+}
+
+.CV-info {
+    margin: 10px;
+}
+
+.CV-info-h2 {
+    text-align: start;
+    background-color: lightgrey;
+
+}
+
+.CV-info-other {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.CV-info-other p {
+    text-align: start;
+    font-style: italic;
+    color: gray;
+}
+
+.CV-info-other-tasks p {
+    text-align: left;
 }
