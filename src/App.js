@@ -28,47 +28,62 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            personData: {
-                general: {
-                    photoURL: '',
-                    firstName: '',
-                    secondName: '',
-                    position: '',
-                    Phone: '',
-                    Address: '',
-                    Email: '',
-                },
-                education: [
-                    {
-                        institution: '',
-                        degree: '',
-                        subject: '',
-                        from: '',
-                        to: '',
-                    },
-                ],
-                experience: [
-                    {
-                        companyName: '',
-                        position: '',
-                        mainTasks: '',
-                        from: '',
-                        to: '',
-                    },
-                ],
-            },
+            PhotoURL: '',
+            FirstName: '',
+            LastName: '',
+            position: '',
+            phone: '',
+            address: '',
+            email: '',
+            EdInstitution: '',
+            EdDegree: '',
+            EdSubject: '',
+            EdFrom: '',
+            EdTo: '',
+            ExpCompanyName: '',
+            ExpPosition: '',
+            ExpMainTasks: '',
+            ExpFrom: '',
+            ExpTo: '',
         };
+        this.handleGeneralInputChange =
+            this.handleGeneralInputChange.bind(this);
+    }
+
+    handleGeneralInputChange(object) {
+        const name = Object.keys(object)[0];
+        const value = object[name];
+        this.setState({
+            [name]: value,
+        });
     }
 
     render() {
+        const { firstName, lastName, position, phone, address, email } =
+            this.state;
         return (
             <ThemeProvider theme={theme}>
                 <div className="App">
                     <Header />
-                    <General />
+                    <General
+                        onInputChange={this.handleGeneralInputChange}
+                        firstName={firstName}
+                        lastName={lastName}
+                        position={position}
+                        phone={phone}
+                        address={address}
+                        email={email}
+                    />
                     <Education />
                     <Experience />
-                    <OutputCV />
+                    <OutputCV
+                        firstName={firstName}
+                        lastName={lastName}
+                        position={position}
+                        phone={phone}
+                        address={address}
+                        email={email}
+                    />
                 </div>
             </ThemeProvider>
         );

@@ -2,7 +2,12 @@ import React from 'react';
 import '../styles/OutputCV.css';
 
 class OutputCV extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
+        const { firstName, lastName, position, phone, address, email } =
+            this.props;
         return (
             <div className="OutputCV">
                 <h1>Your CV</h1>
@@ -14,20 +19,22 @@ class OutputCV extends React.Component {
                         ></img>
                     </div>
                     <div className="CV-header-info">
-                        <h2>Evan Geras</h2>
-                        <p className="it">Developer</p>
+                        <h2>
+                            {firstName} {lastName}
+                        </h2>
+                        <p className="it">{position}</p>
                         <div className="CV-header-info-general">
                             <div className="CV-header-info-general-elements">
                                 <p className="pre">Phone:</p>
-                                <p>+7xxxxxxxxxx</p>
+                                <p>{phone}</p>
                             </div>
                             <div className="CV-header-info-general-elements">
                                 <p className="pre">Address:</p>
-                                <p>Random str</p>
+                                <p>{address}</p>
                             </div>
                             <div className="CV-header-info-general-elements">
                                 <p className="pre">Email:</p>
-                                <p>MyEmail@mail.com</p>
+                                <p>{email}</p>
                             </div>
                         </div>
                     </div>
