@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, TextField, Button, Avatar, InputBase } from '@mui/material';
+import { Container, TextField, Avatar, InputBase } from '@mui/material';
 import { Box } from '@mui/system';
 
 class General extends React.Component {
@@ -53,7 +53,7 @@ class General extends React.Component {
                         margin="normal"
                         size="small"
                         name="firstName"
-                        value={firstName}
+                        value={firstName || ''}
                         onChange={this.handleInputChange}
                     />
                     <TextField
@@ -62,7 +62,7 @@ class General extends React.Component {
                         margin="normal"
                         size="small"
                         name="lastName"
-                        value={lastName}
+                        value={lastName || ''}
                         onChange={this.handleInputChange}
                     />
                     <TextField
@@ -71,7 +71,7 @@ class General extends React.Component {
                         margin="normal"
                         size="small"
                         name="position"
-                        value={position}
+                        value={position || ''}
                         onChange={this.handleInputChange}
                     />
                     <TextField
@@ -80,7 +80,7 @@ class General extends React.Component {
                         margin="normal"
                         size="small"
                         name="phone"
-                        value={phone}
+                        value={phone || ''}
                         onChange={this.handleInputChange}
                     />
                     <TextField
@@ -89,7 +89,7 @@ class General extends React.Component {
                         margin="normal"
                         size="small"
                         name="address"
-                        value={address}
+                        value={address || ''}
                         onChange={this.handleInputChange}
                     />
                     <TextField
@@ -99,11 +99,11 @@ class General extends React.Component {
                         margin="normal"
                         size="small"
                         name="email"
-                        value={email}
+                        value={email || ''}
                         onChange={this.handleInputChange}
                     />
                 </Box>
-                <Button variant="contained">Save</Button>
+                {/* <Button variant="contained">Save</Button> */}
             </Container>
         );
     }

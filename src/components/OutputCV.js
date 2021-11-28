@@ -2,9 +2,6 @@ import React from 'react';
 import '../styles/OutputCV.css';
 
 class OutputCV extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         const { firstName, lastName, position, phone, address, email } =
             this.props;

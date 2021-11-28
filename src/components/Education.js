@@ -1,9 +1,36 @@
 import React from 'react';
-import { Container, TextField, Button } from '@mui/material';
-import { Box } from '@mui/system';
-import '../styles/App.css';
+import { Container, Button } from '@mui/material';
+import EducationSub from './EducationSub';
 
 class Education extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            sub: [<EducationSub id="1" key="1" />],
+        };
+        this.handleAddButtonClick = this.handleAddButtonClick.bind(this);
+        this.handleDeleteButtonClick = this.handleDeleteButtonClick.bind(this);
+    }
+
+    handleAddButtonClick() {
+        this.setState({
+            sub: this.state.sub.concat(
+                <EducationSub
+                    id={this.state.sub.length + 1}
+                    key={this.state.sub.length + 1}
+                />
+            ),
+        });
+    }
+
+    handleDeleteButtonClick() {
+        const sub = this.state.sub.slice();
+        sub.pop();
+        this.setState({
+            sub: sub,
+        });
+    }
+
     render() {
         return (
             <Container
@@ -12,49 +39,16 @@ class Education extends React.Component {
                 }}
             >
                 <h1>Education</h1>
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                    }}
+                {this.state.sub}
+                <Button variant="contained" onClick={this.handleAddButtonClick}>
+                    Add
+                </Button>
+                <Button
+                    variant="contained"
+                    onClick={this.handleDeleteButtonClick}
                 >
-                    <TextField
-                        label="Institution"
-                        variant="outlined"
-                        margin="normal"
-                        size="small"
-                    />
-                    <TextField
-                        label="Degree"
-                        variant="outlined"
-                        margin="normal"
-                        size="small"
-                    />
-                    <TextField
-                        label="Subject"
-                        variant="outlined"
-                        margin="normal"
-                        size="small"
-                    />
-                    <TextField
-                        type="month"
-                        defaultValue="2020-01"
-                        label="From"
-                        variant="outlined"
-                        margin="normal"
-                        size="small"
-                    />
-                    <TextField
-                        type="month"
-                        defaultValue="2020-12"
-                        label="To"
-                        variant="outlined"
-                        margin="normal"
-                        size="small"
-                    />
-                </Box>
-                <Button variant="contained">Add</Button>
-                <Button variant="contained">Save</Button>
+                    Delete
+                </Button>
             </Container>
         );
     }

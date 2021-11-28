@@ -28,26 +28,28 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            PhotoURL: '',
-            FirstName: '',
-            LastName: '',
+            photoURL: '',
+            firstName: '',
+            lastName: '',
             position: '',
             phone: '',
             address: '',
             email: '',
-            EdInstitution: '',
-            EdDegree: '',
-            EdSubject: '',
-            EdFrom: '',
-            EdTo: '',
-            ExpCompanyName: '',
-            ExpPosition: '',
-            ExpMainTasks: '',
-            ExpFrom: '',
-            ExpTo: '',
+            edInstitution: [''],
+            edDegree: [''],
+            edSubject: [''],
+            edFrom: [''],
+            edTo: [''],
+            expCompanyName: '',
+            expPosition: '',
+            expMainTasks: '',
+            expFrom: '',
+            expTo: '',
         };
         this.handleGeneralInputChange =
             this.handleGeneralInputChange.bind(this);
+        this.handleEducationInputChange =
+            this.handleEducationInputChange.bind(this);
     }
 
     handleGeneralInputChange(object) {
@@ -58,9 +60,20 @@ class App extends React.Component {
         });
     }
 
+    // todo
+    handleEducationInputChange(object) {
+        const name = Object.keys(object)[0];
+        console.log(name);
+        // const value = object[name];
+        // this.setState({
+        //     [name]: value,
+        // });
+    }
+
     render() {
         const { firstName, lastName, position, phone, address, email } =
             this.state;
+        const { edInstitution, edDegree, edSubject, edFrom, edTo } = this.state;
         return (
             <ThemeProvider theme={theme}>
                 <div className="App">
@@ -74,7 +87,15 @@ class App extends React.Component {
                         address={address}
                         email={email}
                     />
-                    <Education />
+                    {/* todo */}
+                    <Education
+                        onInputChange={this.handleEducationInputChange}
+                        edInstitution={edInstitution}
+                        edDegree={edDegree}
+                        edSubject={edSubject}
+                        edFrom={edFrom}
+                        edTo={edTo}
+                    />
                     <Experience />
                     <OutputCV
                         firstName={firstName}
