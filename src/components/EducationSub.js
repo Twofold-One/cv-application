@@ -12,8 +12,9 @@ class EducationSub extends React.Component {
     handleInputChange(e) {
         const name = e.target.name;
         const value = e.target.value;
+        const id = this.props.id;
 
-        this.props.onInputChange({ [name]: value });
+        this.props.onInputChange({ [name]: value, id });
     }
 
     render() {
@@ -31,8 +32,9 @@ class EducationSub extends React.Component {
                     variant="outlined"
                     margin="normal"
                     size="small"
-                    name="edInstitiution"
+                    name="edInstitution"
                     value={institution || ''}
+                    onChange={this.handleInputChange}
                 />
                 <TextField
                     label="Degree"
@@ -41,6 +43,7 @@ class EducationSub extends React.Component {
                     size="small"
                     name="edDegree"
                     value={degree || ''}
+                    onChange={this.handleInputChange}
                 />
                 <TextField
                     label="Subject"
@@ -49,6 +52,7 @@ class EducationSub extends React.Component {
                     size="small"
                     name="edSubject"
                     value={subject || ''}
+                    onChange={this.handleInputChange}
                 />
                 <TextField
                     type="month"
@@ -58,6 +62,7 @@ class EducationSub extends React.Component {
                     size="small"
                     name="edFrom"
                     value={from || ''}
+                    onChange={this.handleInputChange}
                 />
                 <TextField
                     type="month"
@@ -67,6 +72,7 @@ class EducationSub extends React.Component {
                     size="small"
                     name="edTo"
                     value={to || ''}
+                    onChange={this.handleInputChange}
                 />
             </Box>
         );

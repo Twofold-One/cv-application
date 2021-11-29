@@ -35,11 +35,11 @@ class App extends React.Component {
             phone: '',
             address: '',
             email: '',
-            edInstitution: [''],
-            edDegree: [''],
-            edSubject: [''],
-            edFrom: [''],
-            edTo: [''],
+            edInstitution: ['1', 'a'],
+            edDegree: ['2', 'b'],
+            edSubject: ['3', 'c'],
+            edFrom: ['4', 'd'],
+            edTo: ['5', 'e'],
             expCompanyName: '',
             expPosition: '',
             expMainTasks: '',
@@ -63,11 +63,14 @@ class App extends React.Component {
     // todo
     handleEducationInputChange(object) {
         const name = Object.keys(object)[0];
-        console.log(name);
-        // const value = object[name];
-        // this.setState({
-        //     [name]: value,
-        // });
+        const value = object[name];
+        const { id } = object;
+        const state = this.state[name].slice();
+        state[id] = value;
+        this.setState({
+            [name]: state,
+        });
+        console.log(this.state);
     }
 
     render() {
