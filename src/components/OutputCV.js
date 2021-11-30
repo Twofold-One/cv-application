@@ -1,7 +1,28 @@
 import React from 'react';
 import '../styles/OutputCV.css';
+import CVEducation from './OutputCV_education';
 
 class OutputCV extends React.Component {
+    renderEducationInfo = () => {
+        const { edInstitution, edDegree, edSubject, edFrom, edTo } = this.props;
+        let edSub = [];
+        console.log('education');
+        for (let i = 0; i < edInstitution.length; i += 1) {
+            edSub.push(
+                <CVEducation
+                    className="CV-info-ohter"
+                    key={i}
+                    institution={edInstitution[i]}
+                    degree={edDegree[i]}
+                    subject={edSubject[i]}
+                    from={edFrom[i]}
+                    to={edTo[i]}
+                />
+            );
+        }
+        return edSub;
+    };
+
     render() {
         const { firstName, lastName, position, phone, address, email } =
             this.props;
@@ -39,16 +60,9 @@ class OutputCV extends React.Component {
                 <div className="CV-main">
                     <div className="CV-info">
                         <h2 className="CV-info-h2">EDUCATION</h2>
-                        <div className="CV-info-other">
-                            <div>
-                                <h2>Institution name</h2>
-                                <p>Degree, Subject</p>
-                            </div>
-                            <div>
-                                <p>January 2020 to Present</p>
-                            </div>
-                        </div>
+                        {this.renderEducationInfo()}
                     </div>
+
                     <div className="CV-info">
                         <h2 className="CV-info-h2">EXPERIENCE</h2>
                         <div className="CV-info-other">

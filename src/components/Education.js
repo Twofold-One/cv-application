@@ -5,7 +5,6 @@ import EducationSub from './EducationSub';
 class Education extends React.Component {
     constructor(props) {
         super(props);
-        // component rerenders every time and that is the problem i guess
         this.state = {
             subCount: 0,
         };

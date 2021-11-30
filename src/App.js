@@ -35,11 +35,11 @@ class App extends React.Component {
             phone: '',
             address: '',
             email: '',
-            edInstitution: ['1', 'a'],
-            edDegree: ['2', 'b'],
-            edSubject: ['3', 'c'],
-            edFrom: ['4', 'd'],
-            edTo: ['5', 'e'],
+            edInstitution: ['Institution name'],
+            edDegree: ['Degree'],
+            edSubject: ['Subject'],
+            edFrom: ['2015-09'],
+            edTo: ['2020-12'],
             expCompanyName: '',
             expPosition: '',
             expMainTasks: '',
@@ -107,6 +107,11 @@ class App extends React.Component {
                         phone={phone}
                         address={address}
                         email={email}
+                        edInstitution={edInstitution}
+                        edDegree={edDegree}
+                        edSubject={edSubject}
+                        edFrom={edFrom}
+                        edTo={edTo}
                     />
                 </div>
             </ThemeProvider>
