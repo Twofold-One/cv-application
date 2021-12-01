@@ -2,7 +2,7 @@ import React from 'react';
 import '../../styles/OutputCV.css';
 import CVEducation from './OutputCV_education';
 import CVExperience from './OutputCV_experience';
-
+import { Button } from '@mui/material';
 class OutputCV extends React.Component {
     renderEducationInfo = () => {
         const { edInstitution, edDegree, edSubject, edFrom, edTo } = this.props;
@@ -44,15 +44,25 @@ class OutputCV extends React.Component {
     };
 
     render() {
-        const { firstName, lastName, position, phone, address, email } =
-            this.props;
+        const {
+            photoURL,
+            firstName,
+            lastName,
+            position,
+            phone,
+            address,
+            email,
+        } = this.props;
         return (
             <div className="OutputCV">
                 <h1>Your CV</h1>
                 <div className="CV-header">
                     <div className="CV-header-photo">
                         <img
-                            src="https://petsworlds.ru/images/sampledata/Profile_avatar_placeholder_large.png"
+                            src={
+                                photoURL ||
+                                'https://petsworlds.ru/images/sampledata/Profile_avatar_placeholder_large.png'
+                            }
                             alt="your face"
                         ></img>
                     </div>
@@ -87,6 +97,7 @@ class OutputCV extends React.Component {
                         {this.renderExperienceInfo()}
                     </div>
                 </div>
+                <Button variant="contained">Export PDF</Button>
             </div>
         );
     }

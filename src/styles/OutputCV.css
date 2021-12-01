@@ -41,6 +41,8 @@
     width: 180px;
     height: 180px;
     border: 1px solid black;
+    object-fit: contain;
+    background-color: lightgrey;
 }
 
 .CV-header-info {

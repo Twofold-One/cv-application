@@ -6,6 +6,7 @@ class General extends React.Component {
     constructor(props) {
         super(props);
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleImageInputChange = this.handleImageInputChange.bind(this);
     }
 
     handleInputChange(e) {
@@ -15,9 +16,23 @@ class General extends React.Component {
         this.props.onInputChange({ [name]: value });
     }
 
+    handleImageInputChange(e) {
+        const name = e.target.name;
+        const value = URL.createObjectURL(e.target.files[0]);
+
+        this.props.onInputChange({ [name]: value });
+    }
+
     render() {
-        const { firstName, lastName, position, phone, address, email } =
-            this.props;
+        const {
+            photoURL,
+            firstName,
+            lastName,
+            position,
+            phone,
+            address,
+            email,
+        } = this.props;
         return (
             <Container
                 sx={{
@@ -35,11 +50,19 @@ class General extends React.Component {
                     <Avatar
                         sx={{
                             margin: '10px',
+                            objectFit: 'contain',
                         }}
                         variant="rounded"
-                        src="https://petsworlds.ru/images/sampledata/Profile_avatar_placeholder_large.png"
+                        src={
+                            photoURL ||
+                            'https://petsworlds.ru/images/sampledata/Profile_avatar_placeholder_large.png'
+                        }
                     ></Avatar>
-                    <InputBase type="file"></InputBase>
+                    <InputBase
+                        type="file"
+                        name="photoURL"
+                        onChange={this.handleImageInputChange}
+                    ></InputBase>
                 </Box>
                 <Box
                     sx={{
