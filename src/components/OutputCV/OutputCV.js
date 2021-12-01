@@ -1,12 +1,12 @@
 import React from 'react';
-import '../styles/OutputCV.css';
+import '../../styles/OutputCV.css';
 import CVEducation from './OutputCV_education';
+import CVExperience from './OutputCV_experience';
 
 class OutputCV extends React.Component {
     renderEducationInfo = () => {
         const { edInstitution, edDegree, edSubject, edFrom, edTo } = this.props;
         let edSub = [];
-        console.log('education');
         for (let i = 0; i < edInstitution.length; i += 1) {
             edSub.push(
                 <CVEducation
@@ -17,6 +17,26 @@ class OutputCV extends React.Component {
                     subject={edSubject[i]}
                     from={edFrom[i]}
                     to={edTo[i]}
+                />
+            );
+        }
+        return edSub;
+    };
+
+    renderExperienceInfo = () => {
+        const { expCompanyName, expPosition, expFrom, expTo, expMainTasks } =
+            this.props;
+        let edSub = [];
+        for (let i = 0; i < expCompanyName.length; i += 1) {
+            edSub.push(
+                <CVExperience
+                    className="CV-info-ohter"
+                    key={i}
+                    companyName={expCompanyName[i]}
+                    position={expPosition[i]}
+                    from={expFrom[i]}
+                    to={expTo[i]}
+                    mainTasks={expMainTasks[i]}
                 />
             );
         }
@@ -62,21 +82,9 @@ class OutputCV extends React.Component {
                         <h2 className="CV-info-h2">EDUCATION</h2>
                         {this.renderEducationInfo()}
                     </div>
-
                     <div className="CV-info">
                         <h2 className="CV-info-h2">EXPERIENCE</h2>
-                        <div className="CV-info-other">
-                            <div>
-                                <h2>Company name</h2>
-                                <p>Position</p>
-                            </div>
-                            <div>
-                                <p>January 2020 to Present</p>
-                            </div>
-                        </div>
-                        <div className="CV-info-other-tasks">
-                            <p>Main tasks</p>
-                        </div>
+                        {this.renderExperienceInfo()}
                     </div>
                 </div>
             </div>

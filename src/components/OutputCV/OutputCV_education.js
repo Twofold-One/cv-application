@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/OutputCV.css';
+import '../../styles/OutputCV.css';
 
 class CVEducation extends React.Component {
     render() {

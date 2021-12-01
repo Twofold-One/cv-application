@@ -80,6 +80,10 @@
     color: gray;
 }
 
+.CV-info-other-tasks {
+    display: block;
+}
+
 .CV-info-other-tasks p {
     text-align: left;
 }

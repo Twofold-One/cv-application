@@ -2,7 +2,7 @@ import React from 'react';
 import { TextField } from '@mui/material';
 import { Box } from '@mui/system';
 
-class EducationSub extends React.Component {
+class ExperienceSub extends React.Component {
     constructor(props) {
         super(props);
 
@@ -16,42 +16,42 @@ class EducationSub extends React.Component {
 
         this.props.onInputChange({ [name]: value, id });
     }
-
     render() {
-        const { institution, degree, subject, from, to } = this.props;
+        const { companyName, position, mainTasks, from, to } = this.props;
         return (
             <Box
                 sx={{
                     display: 'flex',
                     flexDirection: 'column',
-                    marginBottom: '30px',
+                    marginBottom: '20px',
                 }}
             >
                 <TextField
-                    label="Institution"
+                    label="Company name"
                     variant="outlined"
                     margin="normal"
                     size="small"
-                    name="edInstitution"
-                    value={institution || ''}
+                    name="expCompanyName"
+                    value={companyName || ''}
                     onChange={this.handleInputChange}
                 />
                 <TextField
-                    label="Degree"
+                    label="Position"
                     variant="outlined"
                     margin="normal"
                     size="small"
-                    name="edDegree"
-                    value={degree || ''}
+                    name="expPosition"
+                    value={position || ''}
                     onChange={this.handleInputChange}
                 />
                 <TextField
-                    label="Subject"
+                    label="Main tasks"
+                    multiline
                     variant="outlined"
                     margin="normal"
                     size="small"
-                    name="edSubject"
-                    value={subject || ''}
+                    name="expMainTasks"
+                    value={mainTasks || ''}
                     onChange={this.handleInputChange}
                 />
                 <TextField
@@ -60,7 +60,7 @@ class EducationSub extends React.Component {
                     variant="outlined"
                     margin="normal"
                     size="small"
-                    name="edFrom"
+                    name="expFrom"
                     value={from || ''}
                     onChange={this.handleInputChange}
                 />
@@ -70,7 +70,7 @@ class EducationSub extends React.Component {
                     variant="outlined"
                     margin="normal"
                     size="small"
-                    name="edTo"
+                    name="expTo"
                     value={to || ''}
                     onChange={this.handleInputChange}
                 />
@@ -79,4 +79,4 @@ class EducationSub extends React.Component {
     }
 }
 
-export default EducationSub;
+export default ExperienceSub;

@@ -1,10 +1,10 @@
 import React from 'react';
 import './styles/App.css';
-import Header from './components/Header';
-import General from './components/General';
-import Education from './components/Education';
-import Experience from './components/Experience';
-import OutputCV from './components/OutputCV';
+import Header from './components/Header_and_General/Header';
+import General from './components/Header_and_General/General';
+import Education from './components/Education/Education';
+import Experience from './components/Experience/Experience';
+import OutputCV from './components/OutputCV/OutputCV';
 import { createTheme } from '@mui/material';
 import { deepPurple } from '@mui/material/colors';
 import { ThemeProvider } from '@emotion/react';
@@ -40,16 +40,18 @@ class App extends React.Component {
             edSubject: ['Subject'],
             edFrom: ['2015-09'],
             edTo: ['2020-12'],
-            expCompanyName: '',
-            expPosition: '',
-            expMainTasks: '',
-            expFrom: '',
-            expTo: '',
+            expCompanyName: ['Company name'],
+            expPosition: ['Position'],
+            expMainTasks: ['Main Tasks'],
+            expFrom: ['2015-09'],
+            expTo: ['2020-12'],
         };
         this.handleGeneralInputChange =
             this.handleGeneralInputChange.bind(this);
         this.handleEducationInputChange =
             this.handleEducationInputChange.bind(this);
+        this.handleExperienceInputChange =
+            this.handleExperienceInputChange.bind(this);
     }
 
     handleGeneralInputChange(object) {
@@ -60,8 +62,19 @@ class App extends React.Component {
         });
     }
 
-    // todo
     handleEducationInputChange(object) {
+        const name = Object.keys(object)[0];
+        const value = object[name];
+        const { id } = object;
+        const state = this.state[name].slice();
+        state[id] = value;
+        this.setState({
+            [name]: state,
+        });
+        console.log(this.state);
+    }
+
+    handleExperienceInputChange(object) {
         const name = Object.keys(object)[0];
         const value = object[name];
         const { id } = object;
@@ -77,6 +90,8 @@ class App extends React.Component {
         const { firstName, lastName, position, phone, address, email } =
             this.state;
         const { edInstitution, edDegree, edSubject, edFrom, edTo } = this.state;
+        const { expCompanyName, expPosition, expMainTasks, expFrom, expTo } =
+            this.state;
         return (
             <ThemeProvider theme={theme}>
                 <div className="App">
@@ -90,7 +105,6 @@ class App extends React.Component {
                         address={address}
                         email={email}
                     />
-                    {/* todo */}
                     <Education
                         onInputChange={this.handleEducationInputChange}
                         edInstitution={edInstitution}
@@ -99,7 +113,14 @@ class App extends React.Component {
                         edFrom={edFrom}
                         edTo={edTo}
                     />
-                    <Experience />
+                    <Experience
+                        onInputChange={this.handleExperienceInputChange}
+                        expCompanyName={expCompanyName}
+                        expPosition={expPosition}
+                        expMainTasks={expMainTasks}
+                        expFrom={expFrom}
+                        expTo={expTo}
+                    />
                     <OutputCV
                         firstName={firstName}
                         lastName={lastName}
@@ -112,6 +133,11 @@ class App extends React.Component {
                         edSubject={edSubject}
                         edFrom={edFrom}
                         edTo={edTo}
+                        expCompanyName={expCompanyName}
+                        expPosition={expPosition}
+                        expFrom={expFrom}
+                        expTo={expTo}
+                        expMainTasks={expMainTasks}
                     />
                 </div>
             </ThemeProvider>
