@@ -7,8 +7,35 @@ import {
     Document,
     StyleSheet,
 } from '@react-pdf/renderer';
+import { style } from '@mui/system';
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    CVHeader: {
+        backgroundColor: '#005cb2',
+        display: 'flex',
+        flexDirection: 'row',
+        color: 'white',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+        margin: '10px',
+    },
+    it: {
+        fontStyle: 'italic',
+    },
+    pre: {
+        backgroundColor: '#1e88e5',
+    },
+    CVHeaderPhoto: {
+        display: 'flex',
+        justifyContent: 'center',
+        width: '180px',
+        height: '180px',
+        border: '1px solid black',
+        objectFit: 'contain',
+        backgroundColor: 'lightgrey',
+    },
+});
 
 // TODO
 class PDFDocument extends React.Component {
@@ -17,17 +44,10 @@ class PDFDocument extends React.Component {
         return (
             <Document>
                 <Page size="A4">
-                    <View>
+                    <View style={styles.CVHeader}>
+                        <View style={styles.CVHeaderPhoto}></View>
                         <View>
-                            <Image
-                                src={
-                                    photoURL ||
-                                    'https://petsworlds.ru/images/sampledata/Profile_avatar_placeholder_large.png'
-                                }
-                            />
-                        </View>
-                        <View>
-                            <h2>123</h2>
+                            <Text>123</Text>
                         </View>
                     </View>
                 </Page>

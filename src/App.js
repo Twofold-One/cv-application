@@ -9,6 +9,7 @@ import PDFDocument from './components/PDF_Export/PDFDocument';
 import { createTheme } from '@mui/material';
 import { deepPurple } from '@mui/material/colors';
 import { ThemeProvider } from '@emotion/react';
+import { PDFViewer } from '@react-pdf/renderer';
 
 const theme = createTheme({
     palette: {
@@ -149,7 +150,9 @@ class App extends React.Component {
                         expTo={expTo}
                         expMainTasks={expMainTasks}
                     />
-                    <PDFDocument photoURL={photoURL} />
+                    <PDFViewer>
+                        <PDFDocument photoURL={photoURL} />
+                    </PDFViewer>
                 </div>
             </ThemeProvider>
         );
