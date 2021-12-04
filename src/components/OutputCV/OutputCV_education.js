@@ -23,13 +23,3 @@ class CVEducation extends React.Component {
 }
 
 export default CVEducation;
-
-/* <div className="CV-info-other">
-<div>
-    <h2>Institution name</h2>
-    <p>Degree, Subject</p>
-</div>
-<div>
-    <p>January 2020 to Present</p>
-</div>
-</div> */

@@ -2,9 +2,6 @@ import React from 'react';
 import '../../styles/OutputCV.css';
 import CVEducation from './OutputCV_education';
 import CVExperience from './OutputCV_experience';
-import { Button } from '@mui/material';
-import { PDFDownloadLink } from '@react-pdf/renderer';
-import PDFDocument from '../PDF_Export/PDFDocument';
 
 class OutputCV extends React.Component {
     renderEducationInfo = () => {
@@ -58,7 +55,6 @@ class OutputCV extends React.Component {
         } = this.props;
         return (
             <div className="OutputCV">
-                <h1>Your CV</h1>
                 <div className="CV-header">
                     <div className="CV-header-photo">
                         <img
@@ -100,17 +96,6 @@ class OutputCV extends React.Component {
                         {this.renderExperienceInfo()}
                     </div>
                 </div>
-                <div>
-                    <PDFDownloadLink
-                        document={<PDFDocument />}
-                        fileName="somename.pdf"
-                    >
-                        {({ blob, url, loading, error }) =>
-                            loading ? 'Loading document...' : 'Download PDF'
-                        }
-                    </PDFDownloadLink>
-                </div>
-                <Button variant="contained">Export PDF</Button>
             </div>
         );
     }

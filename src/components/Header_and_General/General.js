@@ -126,7 +126,6 @@ class General extends React.Component {
                         onChange={this.handleInputChange}
                     />
                 </Box>
-                {/* <Button variant="contained">Save</Button> */}
             </Container>
         );
     }

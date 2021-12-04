@@ -7,10 +7,27 @@
 .App {
   font-family: "Roboto";
   text-align: center;
-  border: 5px solid black;
   padding: 10px;
 }
 
 .MuiButton-root {
   margin: 20px;
+}
+
+.Header{
+  font-size: 50px;
+  background: -webkit-linear-gradient(#6ab7ff, #673ab7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+footer {
+  margin-top: 50px;
+  background: -webkit-linear-gradient(#6ab7ff, #673ab7);
+  border-radius: 20px;
+  color: white;
+}
+
+footer i {
+  color: white;
 }

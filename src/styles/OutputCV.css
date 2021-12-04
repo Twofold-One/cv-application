@@ -16,6 +16,7 @@
     align-items: center;
     flex-wrap: wrap;
     margin: 10px;
+    border-radius: 5px;
 }
 
 .CV-header p,
@@ -43,6 +44,7 @@
     border: 1px solid black;
     object-fit: contain;
     background-color: lightgrey;
+    border-radius: 5px 0 0 5px;
 }
 
 .CV-header-info {

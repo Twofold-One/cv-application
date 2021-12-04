@@ -5,11 +5,10 @@ import General from './components/Header_and_General/General';
 import Education from './components/Education/Education';
 import Experience from './components/Experience/Experience';
 import OutputCV from './components/OutputCV/OutputCV';
-import PDFDocument from './components/PDF_Export/PDFDocument';
-import { createTheme } from '@mui/material';
+import { Button, createTheme } from '@mui/material';
 import { deepPurple } from '@mui/material/colors';
 import { ThemeProvider } from '@emotion/react';
-import { PDFViewer } from '@react-pdf/renderer';
+import ReactToPrint from 'react-to-print';
 
 const theme = createTheme({
     palette: {
@@ -37,16 +36,16 @@ class App extends React.Component {
             phone: '',
             address: '',
             email: '',
-            edInstitution: ['Institution name'],
-            edDegree: ['Degree'],
-            edSubject: ['Subject'],
-            edFrom: ['2015-09'],
-            edTo: ['2020-12'],
-            expCompanyName: ['Company name'],
-            expPosition: ['Position'],
-            expMainTasks: ['Main Tasks'],
-            expFrom: ['2015-09'],
-            expTo: ['2020-12'],
+            edInstitution: [''],
+            edDegree: [''],
+            edSubject: [''],
+            edFrom: [''],
+            edTo: [''],
+            expCompanyName: [''],
+            expPosition: [''],
+            expMainTasks: [''],
+            expFrom: [''],
+            expTo: [''],
         };
         this.handleGeneralInputChange =
             this.handleGeneralInputChange.bind(this);
@@ -73,7 +72,6 @@ class App extends React.Component {
         this.setState({
             [name]: state,
         });
-        console.log(this.state);
     }
 
     handleExperienceInputChange(object) {
@@ -85,7 +83,6 @@ class App extends React.Component {
         this.setState({
             [name]: state,
         });
-        console.log(this.state);
     }
 
     render() {
@@ -131,6 +128,7 @@ class App extends React.Component {
                         expFrom={expFrom}
                         expTo={expTo}
                     />
+                    <h1>Your CV</h1>
                     <OutputCV
                         photoURL={photoURL}
                         firstName={firstName}
@@ -149,10 +147,28 @@ class App extends React.Component {
                         expFrom={expFrom}
                         expTo={expTo}
                         expMainTasks={expMainTasks}
+                        ref={(el) => (this.componentRef = el)}
                     />
-                    <PDFViewer>
-                        <PDFDocument photoURL={photoURL} />
-                    </PDFViewer>
+                    <ReactToPrint
+                        trigger={() => {
+                            return (
+                                <Button variant="contained">Export PDF</Button>
+                            );
+                        }}
+                        content={() => this.componentRef}
+                    />
+                    <footer>
+                        <h3>
+                            Made by Twofold-One{' '}
+                            <a
+                                href="https://github.com/Twofold-One"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </h3>
+                    </footer>
                 </div>
             </ThemeProvider>
         );

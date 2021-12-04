@@ -17,7 +17,6 @@ class Education extends React.Component {
         this.setState({
             subCount: this.state.subCount + 1,
         });
-        console.log(this.state);
     }
 
     handleDeleteButtonClick() {
@@ -25,7 +24,6 @@ class Education extends React.Component {
             this.setState({
                 subCount: this.state.subCount - 1,
             });
-        console.log(this.state);
     }
 
     displaySubs() {
