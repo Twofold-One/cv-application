@@ -1,7 +1,10 @@
 # CV Creator App
 
-App allows to create template resume by filling the input fields and save or print the result.
+The app allows the creation of template resumes by filling the input fields and saving or printing the result.
 
 ### Technologies used
 
-[React](https://facebook.github.io/create-react-app/docs/deployment)
+[React](https://reactjs.org/)
+[MUI](https://mui.com/)
+[ReactToPrint](https://github.com/gregnb/react-to-print)
+
