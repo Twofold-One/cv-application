@@ -5,6 +5,8 @@ The app allows the creation of template resumes by filling the input fields and 
 ### Technologies used
 
 [React](https://reactjs.org/)
+
 [MUI](https://mui.com/)
+
 [ReactToPrint](https://github.com/gregnb/react-to-print)
 
